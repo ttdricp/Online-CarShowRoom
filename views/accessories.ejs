@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HeadPhones</title>
+
+    <link rel="icon" type="image/x-icon" href="/on/demandware.static/Sites-Marshall-NT-Site/-/default/dw5234b375/images/favicons/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+
+    <!-- Fonts -->
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/2d7e7473f2.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header id="header" class="header-2">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://www.marshallheadphones.com/on/demandware.static/Sites-Marshall-NT-Site/-/default/dwa047c2f3/images/marshall-logo-white.svg"
+                 width="165" height="40" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation" style="color: white">
+            <span class="navbar-toggler-icon" style="color: white">O</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="/"><h6>HeadPhones</h6></a></li>
+                <li class="nav-item active"><a class="nav-link" href="accessories"><h6>Accessories</h6></a></li>
+                <li class="nav-item active"><a class="nav-link" href="about"><h6>About</h6></a></li>
+                <li class="nav-item active"><a class="nav-link" href="signin"><h6>SignIn</h6></a></li>
+                <li class="nav-item active"><a class="nav-link" href="signup"><h6>SignUp</h6></a></li>
+            </ul>
+        </div>
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart cart" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle-fill cart" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.496 6.033h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286a.237.237 0 0 0 .241.247zm2.325 6.443c.61 0 1.029-.394 1.029-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94 0 .533.425.927 1.01.927z"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search cart" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+        </div>
+    </nav>
+    <div class="bottom-center" align="center">
+        <h1>
+            EXTRAS FOR SPEAKERS AND
+        </h1>
+        <h1>
+            HEADPHONES
+        </h1>
+    </div>
+
+</header>
+
+
+<div class="container">
+
+
+
+    <div class="s-title text-center">
+        <h2 class="h2-title" style="padding-top: 40px">ACCESSORIES</h2>
+    </div>
+
+    <div class="row row-id1">
+        <div class="col-md-3 col-lg-3 col-xl-3" align="center">
+            <div id="product-1" class="single-product">
+                <a href="#" class="firstpick">
+                    <img src="https://www.marshallheadphones.com/dw/image/v2/BCQL_PRD/on/demandware.static/-/Sites-zs-master-catalog/default/dw2df7ddbf/images/marshall/accessories/cables/new/medium/speaker-audio-cable-35mm-black.png?sw=570&sh=570&sm=fit" alt="" class="pick">
+                </a>
+                <h5 class="product-title">SPEAKER AUDIO CABLE</h5>
+            </div>
+        </div>
+        <div class="col-md-3 col-lg-3 col-xl-3" align="center">
+            <a href="#" class="firstpick">
+                <img src="https://www.marshallheadphones.com/dw/image/v2/BCQL_PRD/on/demandware.static/-/Sites-zs-master-catalog/default/dwe56d764f/images/marshall/accessories/spare-parts/medium/pl-marshall-accessories-monitor-II-anc-earcushion.png?sw=570&sh=570&sm=fit" alt="" class="pick">
+            </a>
+            <h5 class="product-title">MONITOR II A.N.C. EAR CUSHIONS</h5>
+        </div>
+        <div class="col-md-3 col-lg-3 col-xl-3" align="center">
+            <a href="#" class="firstpick">
+                <img src="https://www.marshallheadphones.com/dw/image/v2/BCQL_PRD/on/demandware.static/-/Sites-zs-master-catalog/default/dwdbecc9e6/images/marshall/accessories/cables/medium/pl-marshall-accessories-usb-cable-black-1700x1700.png?sw=570&sh=570&sm=fit" alt="" class="pick">
+            </a>
+            <h5 class="product-title">MARSHALL MICRO USB CABLE</h5>
+        </div>
+        <div class="col-md-3 col-lg-3 col-xl-3" align="center">
+            <a href="#" class="firstpick">
+                <img src="https://www.marshallheadphones.com/dw/image/v2/BCQL_PRD/on/demandware.static/-/Sites-zs-master-catalog/default/dwcba8f1ec/images/marshall/accessories/spare-parts/medium/pl-marshall-accessories-mid-earcushion-1700x1700.png?sw=570&sh=570&sm=fit" alt="" class="pick">
+            </a>
+            <h5 class="product-title">MID BLUETOOTH EAR CUSHIONS</h5>
+        </div>
+    </div>
+
+
+    <div class="row row-id1">
+        <div class="col-md-4 col-lg-4 col-xl-4" align="center">
+            <div id="product-1" class="single-product">
+                <a href="#" class="firstpick">
+                    <img src="https://www.marshallheadphones.com/dw/image/v2/BCQL_PRD/on/demandware.static/-/Sites-zs-master-catalog/default/dw4460dcc0/images/marshall/accessories/spare-parts/medium/pl-marshall-accessories-ftf-filter-1700x1700.png?sw=570&sh=570&sm=fit" alt="" class="pick">
+                </a>
+                <h5 class="product-title">MONITOR F.T.F. FILTER</h5>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-4 col-xl-4" align="center">
+            <a href="#" class="firstpick">
+                <img src="https://www.marshallheadphones.com/dw/image/v2/BCQL_PRD/on/demandware.static/-/Sites-zs-master-catalog/default/dwef8ae223/images/marshall/accessories/spare-parts/medium/pl-marshall-accessories-major-iii-earcushion-black.png?sw=570&sh=570&sm=fit" alt="" class="pick">
+            </a>
+            <h5 class="product-title">MAJOR III EAR CUSHIONS</h5>
+        </div>
+        <div class="col-md-4 col-lg-4 col-xl-4" align="center">
+            <a href="#" class="firstpick">
+                <img src="https://www.marshallheadphones.com/dw/image/v2/BCQL_PRD/on/demandware.static/-/Sites-zs-master-catalog/default/dwfa81cc67/images/marshall/accessories/cables/medium/pl-marshall-accessories-audio-cable-l-plug-mic-black-1700x1700.png?sw=570&sh=570&sm=fit" alt="" class="pick">
+            </a>
+            <h5 class="product-title">HEADPHONE AUDIO CABLE</h5>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-facebook-f"></i
+                ></a>
+
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-twitter"></i
+                ></a>
+
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-google"></i
+                ></a>
+
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-instagram"></i
+                ></a>
+
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-linkedin-in"></i
+                ></a>
+
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+            ><i class="fab fa-github"></i
+                ></a>
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Form -->
+        <section class="">
+            <form action="">
+                <!--Grid row-->
+                <div class="row d-flex justify-content-center">
+                    <!--Grid column-->
+                    <div class="col-auto">
+                        <p class="pt-2">
+                            <strong>Sign up for our newsletter</strong>
+                        </p>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-5 col-12">
+                        <!-- Email input -->
+                        <div class="form-outline form-white mb-4">
+                            <input type="email" id="form5Example21" class="form-control" />
+                            <label class="form-label" for="form5Example21">Email address</label>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-auto">
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-outline-light mb-4">
+                            Subscribe
+                        </button>
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </form>
+        </section>
+        <!-- Section: Form -->
+
+        <!-- Section: Text -->
+        <section class="mb-4">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+                repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+                eum harum corrupti dicta, aliquam sequi voluptate quas.
+            </p>
+        </section>
+        <!-- Section: Text -->
+
+        <!-- Section: Links -->
+        <section class="">
+            <!--Grid row-->
+            <div class="row">
+                <div id="map"></div>
+                <script>
+                    function initMap (){
+                        var opt = {
+                            center: {lat:51.09168478455711, lng:71.41858039243441},
+                            zoom:15
+                        }
+                        var map = new google.maps.Map(document.getElementById("map"), opt)
+
+                    }
+                </script>
+
+                <script
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeIuRvV4AEwFNQptfJEJHNeFoNMo0-kmk&callback=initMap"
+                        async defer></script>
+            </div>
+            <!--Grid row-->
+        </section>
+        <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: black;">
+        © 2022 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">AITU MARSHALL STORE</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->
+</body>
+</html>
