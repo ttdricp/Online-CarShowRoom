@@ -261,3 +261,77 @@ const audi = Cfactory.create('audi', 12000)
 const bmwX3 = Cfactory.create('bmw', 8000)
 
 console.log(bmwX3 === bmwX6)
+
+
+// chain of responsibility
+class CarConfig {
+    constructor(initialCOST = 19000000) {
+        this.sum = initialCOST
+    }
+
+    add(supplement) {
+        this.sum += supplement
+        return this
+    }
+}
+
+const leather = new CarConfig()
+console.log(leather.add(200000).add(25000).add(45000).add(5500).sum)
+// front and rear heating individually
+
+const heating = new CarConfig(0)
+console.log(heating.add(530000).add(46500).sum)
+
+
+// iterator
+class MyIterator {
+    constructor(data) {
+        this.index = 0
+        this.data = data
+    }
+
+    [Symbol.iterator]() {
+        return {
+            next: () => {
+                if (this.index < this.data.length) {
+                    return {
+                        value: this.data[this.index++],
+                        done: false
+                    }
+                    // end
+                } else {
+                    this.index = 0
+                    return {
+                        done: true,
+                        value: void 0 //undefined
+                    }
+                }
+            }
+        }
+    }
+}
+
+// we can do it easier using gen
+function* generator(collection) {
+    let index = 0
+
+    while (index < collection.length) {
+        yield collection[index++]
+    }
+}
+
+
+const iterator = new MyIterator(['Audi', 'BMW', 'Mercedes', 'VolksWagen', 'KIA'])
+const gen = generator(['Honda', 'Toyota', 'Nissan'])
+
+for (const val of iterator) {
+  console.log('Value: ', val)
+}
+
+for (const val of gen) {
+    console.log('Value: ', val)
+}
+//
+// console.log(gen.next().value)
+// console.log(gen.next().value)
+// console.log(gen.next().value)
