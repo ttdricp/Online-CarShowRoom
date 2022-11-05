@@ -335,3 +335,198 @@ for (const val of gen) {
 // console.log(gen.next().value)
 // console.log(gen.next().value)
 // console.log(gen.next().value)
+
+
+// Mediator
+
+class User {
+    constructor(name) {
+        this.name = name
+        this.room = null
+    }
+
+    send(message, to) {
+        this.room.send(message, this, to)
+    }
+
+    receive(message, from) {
+        console.log(`${from.name} => ${this.name}: ${message}`)
+    }
+}
+
+class ChatRoom {
+    constructor() {
+        this.users = {}
+    }
+
+    register(user) {
+        this.users[user.name] = user
+        user.room = this
+    }
+
+    send(message, from, to) {
+        if (to) {
+            to.receive(message, from)
+        } else {
+            Object.keys(this.users).forEach(key => {
+                if (this.users[key] !== from) {
+                    this.users[key].receive(message, from)
+                }
+            })
+        }
+    }
+}
+
+const Slava = new User('Slava')
+const Madiyar = new User('Madiyar')
+const Customer = new User('Yowa')
+
+const room = new ChatRoom()
+
+room.register(Slava)
+room.register(Madiyar)
+room.register(Customer)
+
+Slava.send('Hello! This is a technical support. Leave here your question', Customer)
+Customer.send('Hello! Is someone here?', Madiyar)
+Madiyar.send('Hello! Yes, What can I help you?', Customer)
+
+
+// observer
+
+class Subject {
+    constructor() {
+        this.observers = []
+    }
+
+    subscribe(observer) {
+        this.observers.push(observer)
+    }
+
+    unsubscribe(observer) {
+        this.observers = this.observers.filter(obs => obs !== observer)
+    }
+
+    init(action) {
+        this.observers.forEach(observer => {
+            observer.update(action)
+        })
+    }
+}
+
+class Observer {
+    constructor(state = 1) {
+        this.state = state
+        this.initialState = state
+    }
+
+    update(action) {
+        switch (action.type) {
+            case 'INCREMENT':
+                this.state = ++this.state
+                break
+            case 'DECREMENT':
+                this.state = --this.state
+                break
+            case 'ADD':
+                this.state += action.payload
+                break
+            default:
+                this.state = this.initialState
+        }
+    }
+}
+
+const stream$ = new Subject()
+
+const car1 = new Observer(9500000)
+const car2 = new Observer(4200000)
+
+stream$.subscribe(car1)
+stream$.subscribe(car2)
+
+stream$.init({type: 'INCREMENT'})
+stream$.init({type: 'DECREMENT'})
+stream$.init({type: 'ADD', payload: 256000})
+
+console.log('new price of the car1 is', car1.state)
+console.log('new price of the car 2 is', car2.state)
+
+
+
+
+// state
+
+class Wallet {
+    constructor(wallet) {
+        this.wallet = wallet
+    }
+}
+
+class Business extends Wallet {
+    constructor() {
+        super('business')
+    }
+
+    sign() {
+        return 'business'
+    }
+}
+
+class Comfort extends Wallet {
+    constructor() {
+        super('comfort')
+    }
+
+    sign() {
+        return 'comfort'
+    }
+}
+
+class Economy extends Wallet {
+    constructor() {
+        super('economy')
+    }
+
+    sign() {
+        return 'economy'
+    }
+}
+
+class Category {
+    constructor() {
+        this.states = [
+            new Economy(),
+            new Comfort(),
+            new Business()
+        ]
+        this.current = this.states[0]
+    }
+
+    change() {
+        const total = this.states.length
+        let index = this.states.findIndex(light => light === this.current)
+
+        if (index + 1 < total) {
+            this.current = this.states[index + 1]
+        } else {
+            this.current = this.states[0]
+        }
+    }
+
+    sign() {
+        return this.current.sign()
+    }
+}
+
+const category = new Category()
+console.log(category.sign())
+category.change()
+
+console.log(category.sign())
+category.change()
+
+console.log(category.sign())
+category.change()
+
+
