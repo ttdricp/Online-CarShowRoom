@@ -84,6 +84,8 @@ start()
 //CREATIONAL
 //constructor with singleton
 
+console.log("\n                     SINGLETON")
+
 class Database {
     constructor(data) {
         if (Database.exists) {
@@ -109,6 +111,7 @@ console.log(postgresql.getData())
 
 
 
+console.log("\n                     CONSTRUCTOR")
 
 class Server {
     constructor(ip, port) {
@@ -149,6 +152,9 @@ console.log(s2.url)
 
 
 //factory
+
+
+console.log("\n                     FACTORY")
 
 class StandardMembership {
     constructor(name) {
@@ -197,6 +203,10 @@ members.forEach(m => {
 })
 
 //prototype
+
+
+console.log("\n                     PROTOTYPE")
+
 const car = {
     model: 'Nissan Stegea',
 
@@ -225,6 +235,9 @@ carWithCustomer.init()
 
 // STRUCTURAL
 // flyweight -- like a cache
+
+
+console.log("\n                     FLYWEIGHT")
 
 class Car {
     constructor(model, price) {
@@ -284,6 +297,10 @@ console.log(heating.add(530000).add(46500).sum)
 
 
 // iterator
+
+
+console.log("\n                     ITERATOR")
+
 class MyIterator {
     constructor(data) {
         this.index = 0
@@ -339,6 +356,9 @@ for (const val of gen) {
 
 // Mediator
 
+
+console.log("\n                     MEDIATOR")
+
 class User {
     constructor(name) {
         this.name = name
@@ -393,6 +413,8 @@ Madiyar.send('Hello! Yes, What can I help you?', Customer)
 
 
 // observer
+
+console.log("\n                     OBSERVER")
 
 class Subject {
     constructor() {
@@ -456,6 +478,9 @@ console.log('new price of the car 2 is', car2.state)
 
 
 // state
+
+
+console.log("\n                     STATE")
 
 class Wallet {
     constructor(wallet) {

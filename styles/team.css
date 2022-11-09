@@ -40,7 +40,7 @@
     background-size: 300px;
 }
 .card0:hover {
-    background: url("/styles/photo_2022-10-21_12-07-46.jpg") bottom center no-repeat;
+    background: url("/styles/photo_2022-10-21_12-07-46.jpg") center no-repeat;
     background-size: 400px;
 }
 .card0:hover h2 {
