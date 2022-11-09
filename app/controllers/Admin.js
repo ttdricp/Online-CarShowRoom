@@ -14,7 +14,7 @@ exports.create = async (req, res) => {
         email: req.body.email,
         password: req.body.password,
         re_pass: req.body.re_pass,
-        roles: [adminRole.value]
+
     });
 
     await admin.save().then(data => {
